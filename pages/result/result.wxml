@@ -1,0 +1,16 @@
+<!--pages/result/result.wxml-->
+<view class="body">
+  <view class="resultPicture">
+    <image class="backgroundPicture" src="{{picturePath}}" mode="aspectFill"></image>
+    
+  </view>
+  <view class="resultBox">
+    <view class="resultMessage">
+    <text>谁知道这是什么花</text>
+    </view>
+    <view>
+    <view class="takePicture" bindtap="takePicture">拍照识花</view>
+    <view class="uploadPicture">从相册上传></view>
+    </view>
+  </view>
+</view> 

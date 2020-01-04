@@ -1,0 +1,48 @@
+/* pages/result/result.wxss */
+.body{
+  height: 100%
+}
+.resultPicture{
+  height: 50%
+}
+.resultBox{
+  height: 50%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+.backgroundPicture {
+  width: 100%;
+  height: 50%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+.resultMessage{
+  margin-top: 15px;
+  display:flex;
+  height: 50%;
+  width:60%;
+  /* border: 1px solid; */
+  box-shadow: rgb(199, 195, 195) 2px 3px 3px 2px;
+  background-color: red;
+  text-align:center;
+}
+.takePicture{
+  width: 300rpx;
+  height:88rpx;
+  line-height:88rpx;
+  text-align:center;
+  font-size: 28rpx;
+  color: white;
+  border-radius:150rpx;
+  background-color: rgb(111, 221, 101);
+  margin-top: 100rpx;
+}
+.uploadPicture{
+  font-size: 12px;
+  padding-left: 90rpx;
+  color: rgba(0,0,0,0.5);
+  margin-top: 15px;
+}
