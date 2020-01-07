@@ -76,7 +76,30 @@ Page({
         _this.setData({
           picturePath: tempFilePath
         })
+        wx.uploadFile({
+          url: 'http://localhost:8080/uploadPicture',
+          filePath: tempFilePath,
+          name: 'file',
+          success(response){
+            _this.queryMsg()
+          }
+        })
       },
+    })
+  },
+  queryMsg:function(){
+    var _this = this
+    wx.request({
+      url: 'http://localhost:8080/discriminate',
+      method:'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success:function(response){
+       
+        console.log(response)
+         
+      }
     })
   }
   

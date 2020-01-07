@@ -6,11 +6,11 @@
   </view>
   <view class="resultBox">
     <view class="resultMessage">
-    <text>谁知道这是什么花</text>
+    <text>{{msg}}</text>
     </view>
     <view>
     <view class="takePicture" bindtap="takePicture">拍照识花</view>
-    <view class="uploadPicture">从相册上传></view>
+    <view class="uploadPicture" bindtap="queryMsg">从相册上传></view>
     </view>
   </view>
 </view> 
