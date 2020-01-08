@@ -42,7 +42,7 @@
 }
 .uploadPicture{
   font-size: 12px;
-  padding-left: 90rpx;
+  padding-left: 13vw;
   color: rgba(0,0,0,0.5);
   margin-top: 15px;
 }
