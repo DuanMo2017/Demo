@@ -81,7 +81,9 @@ Page({
           filePath: tempFilePath,
           name: 'file',
           success(response){
-            _this.queryMsg()
+            let data = JSON.parse(response.data)
+            console.log(JSON.parse(response.data))
+            _this.setData({msg: data.flowerName})
           }
         })
       },
@@ -97,7 +99,7 @@ Page({
       },
       success:function(response){
        
-        console.log(response)
+        console.log(response.data.flowerName)
          
       }
     })
