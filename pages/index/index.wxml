@@ -10,6 +10,6 @@
   
   <view class="footer">
     <view class="distinguish" bindtap="photograph"> 拍照识花 </view>
-    <view class="uploadPicture">从相册上传></view>
+    <!-- <view class="uploadPicture">从相册上传></view> -->
   </view>
 </view>

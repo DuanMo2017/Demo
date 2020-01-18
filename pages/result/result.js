@@ -5,15 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    picturePath:''
+    picturePath:'',
+    msg:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const path = options.path
     this.setData({
-      picturePath:options.path
+      picturePath:path
+    })
+    const _this = this
+    wx.uploadFile({
+      url: 'http://192.168.3.141:8080/uploadPicture',
+      filePath: path,
+      name: 'file',
+      success(response) {
+        let data = JSON.parse(response.data)
+        _this.setData({ msg: data.flowerName })
+      }
     })
   },
 
@@ -77,31 +89,38 @@ Page({
           picturePath: tempFilePath
         })
         wx.uploadFile({
-          url: 'http://localhost:8080/uploadPicture',
+          url: 'http://192.168.3.141:8080/uploadPicture',
           filePath: tempFilePath,
           name: 'file',
           success(response){
             let data = JSON.parse(response.data)
-            console.log(JSON.parse(response.data))
             _this.setData({msg: data.flowerName})
           }
         })
       },
     })
   },
-  queryMsg:function(){
+  uploadPicture:function(){
     var _this = this
-    wx.request({
-      url: 'http://localhost:8080/discriminate',
-      method:'POST',
-      header: {
-        'content-type': 'application/json' // 默认值
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都
+      success: function (res) {
+        const tempFilePath = res.tempFilePaths[0]
+        _this.setData({
+          picturePath: tempFilePath
+        })
+        wx.uploadFile({
+          url: 'http://192.168.3.141:8080/uploadPicture',
+          filePath: tempFilePath,
+          name: 'file',
+          success(response) {
+            let data = JSON.parse(response.data)
+            _this.setData({ msg: data.flowerName })
+          }
+        })
       },
-      success:function(response){
-       
-        console.log(response.data.flowerName)
-         
-      }
     })
   }
   
