@@ -6,7 +6,8 @@ Page({
    */
   data: {
     picturePath:'',
-    msg:''
+    msg:'',
+    url:'http://192.168.3.141:8080/uploadPicture'
   },
 
   /**
@@ -19,7 +20,7 @@ Page({
     })
     const _this = this
     wx.uploadFile({
-      url: 'http://192.168.3.141:8080/uploadPicture',
+      url: _this.data.url,
       filePath: path,
       name: 'file',
       success(response) {
@@ -89,7 +90,7 @@ Page({
           picturePath: tempFilePath
         })
         wx.uploadFile({
-          url: 'http://192.168.3.141:8080/uploadPicture',
+          url: _this.data.url,
           filePath: tempFilePath,
           name: 'file',
           success(response){
@@ -112,7 +113,7 @@ Page({
           picturePath: tempFilePath
         })
         wx.uploadFile({
-          url: 'http://192.168.3.141:8080/uploadPicture',
+          url: _this.data.url,
           filePath: tempFilePath,
           name: 'file',
           success(response) {
